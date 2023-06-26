@@ -37,10 +37,3 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-
-.car {
-  border: 1px solid #000;
-  width: 80px;
-  height: 150px;
-  background-color: #d9d9d9;
-}
