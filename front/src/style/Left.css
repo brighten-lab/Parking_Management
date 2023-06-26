@@ -1,0 +1,8 @@
+aside {
+  flex: 0.2;
+}
+button {
+  background-color: blue;
+  color: white;
+  padding: 10px;
+}
