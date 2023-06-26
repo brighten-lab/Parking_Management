@@ -1,11 +1,8 @@
+import React from "react";
+import A from "./page/A";
+
 const App = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>시작</p>
-      </header>
-    </div>
-  );
+  return <A />;
 };
 
 export default App;
