@@ -10,7 +10,7 @@ const Car = styled.div`
 `;
 
 const A = () => {
-  const [parking] = useState([
+  const [parking, setParking] = useState([
     {
       zone: "a",
       is_parked: false,
@@ -48,7 +48,23 @@ const A = () => {
     },
   ]);
 
-  useEffect(() => {});
+  useEffect(() => {
+    fetch("http://127.0.0.1:5000/list", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ zone: "A" }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setParking(data);
+        console.log("성공: " + data);
+      })
+      .catch((error) => {
+        console.error("error: " + error);
+      });
+  }, []);
 
   return (
     <div className="body">
