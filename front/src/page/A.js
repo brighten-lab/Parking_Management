@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "../style/location.css";
+import Left from "./Left";
+
+const url = 'http://127.0.0.1:5001';
 
 const Car = styled.div`
   border: 1px solid #a7a7a7;
@@ -9,7 +12,17 @@ const Car = styled.div`
   background-color: ${(props) => (props.isParked ? "#d9d9d9" : "blue")};
 `;
 
+const Container = styled.div`
+  display: flex;
+  height: 100vh;
+`;
+
+
 const A = () => {
+  const [avail, setAvail] = useState(0);
+  const [done, setDone] = useState(0);
+  const [total, setTotal] = useState(0);
+
   const [parking, setParking] = useState([
     {
       zone: "a",
@@ -49,7 +62,7 @@ const A = () => {
   ]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/list", {
+    fetch(url + '/list', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -64,9 +77,27 @@ const A = () => {
       .catch((error) => {
         console.error("error: " + error);
       });
+
+      fetch(url + '/total', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ zone: "A" }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setTotal(data);
+          console.log("성공: " + data);
+        })
+        .catch((error) => {
+          console.error("error: " + error);
+        });
   }, []);
 
   return (
+    <Container>
+    <Left avail={avail} done={done} total={total}/>
     <div className="body">
       {parking.map((car, index) => (
         <Car key={index} isParked={car.is_parked}>
@@ -74,6 +105,7 @@ const A = () => {
         </Car>
       ))}
     </div>
+    </Container>
   );
 };
 
