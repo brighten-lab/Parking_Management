@@ -27,6 +27,16 @@ def total():
     db.close()
     return jsonify(result)
 
+@app.route('/avail', methods=['POST'])
+def avail():
+    zone = request.json.get('zone') 
+    db = pymysql.connect(host='211.57.200.6', port=3306, user='root', password='willcam1190', db='park', charset='utf8')
+    cursor = db.cursor()
+    sql = "SELECT count(id) FROM parking WHERE zone= %s AND is_parked= 0;"
+    cursor.execute(sql, zone)
+    result = cursor.fetchone()[0]
+    db.close()
+    return jsonify(result)
 
 if __name__ == '__main__':
     app.run(debug=True)
