@@ -93,6 +93,23 @@ const A = () => {
         .catch((error) => {
           console.error("error: " + error);
         });
+
+        fetch(url + '/avail', {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ zone: "A" }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            setAvail(data);
+            setDone(total - avail);
+            console.log("성공: " + data);
+          })
+          .catch((error) => {
+            console.error("error: " + error);
+          });
   }, []);
 
   return (
