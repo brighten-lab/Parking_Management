@@ -104,17 +104,17 @@ const A = () => {
           .then((response) => response.json())
           .then((data) => {
             setAvail(data);
-            setDone(total - avail);
             console.log("성공: " + data);
           })
           .catch((error) => {
             console.error("error: " + error);
           });
+
   }, []);
 
   return (
     <Container>
-    <Left avail={avail} done={done} total={total}/>
+    <Left avail={avail} total={total}/>
     <div className="body">
       {parking.map((car, index) => (
         <Car key={index} isParked={car.is_parked}>

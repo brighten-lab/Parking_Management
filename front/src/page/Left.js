@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../style/Left.css";
 
 
 const Left = (props) => {
-  const { avail, done, total } = props;
+  const { avail, total } = props;
+  const [done, setDone] = useState(0);
+
+  useEffect(() => {
+    setDone(total - avail);
+  }, [avail, total]);
 
   return (
     <>
