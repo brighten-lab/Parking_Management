@@ -11,13 +11,13 @@ const Left = (props) => {
     borderRadius: '5px',
     margin: '5px',
     marginTop: '15px',
-    height: '50px',
-    fontSize: '20px',
+    height: '65px',
+    fontSize: '30px',
     display: 'flex',
     alignItems: 'center',
     paddingLeft: '10px',
     paddingRight: '10px',
-    width: '150px',
+    width: '190px',
   };
 
   const Avail = {
