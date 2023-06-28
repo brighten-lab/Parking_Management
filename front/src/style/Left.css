@@ -4,9 +4,17 @@ aside {
 }
 
 button {
-  background-color: blue;
+  background-color: #4b4949;
   color: white;
-  padding: 10px;
+  display: flex; 
+  margin-top: 20px;
+  margin-left: 5px;
+  font-size: 20px;
+  border:none;
+}
+
+button:hover{
+  color: #212121;
 }
 
 .textnum{

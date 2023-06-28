@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../style/Left.css";
-
-
+import { FiRefreshCcw } from "react-icons/fi";
 
 const Left = (props) => {
   const { avail, total } = props;
@@ -11,7 +10,7 @@ const Left = (props) => {
     backgroundColor: avail === 0 ? "red" : "#6d6d6d",
     borderRadius: '5px',
     margin: '5px',
-    marginTop: '20px',
+    marginTop: '15px',
     height: '50px',
     fontSize: '20px',
     display: 'flex',
@@ -37,20 +36,20 @@ const Left = (props) => {
   return (
     <>
       <aside>
-        <p style={Full}>만차 </p>
+      <button onClick={Refresh}><FiRefreshCcw/></button>
+        <p style={Full}>만차</p>
         <div className="textnum" style={Avail} >
-        <p >주차 가능</p> 
+        <p >주차가능</p> 
         <p>{avail}</p>
     </div>
     <div className="textnum">
-        <p>주차 완료</p> 
+        <p>주차완료</p> 
         <p>{done}</p>
     </div>
     <div className="textnum">
         <p>총 주차</p> 
         <p>{total}</p>
     </div>
-        <button onClick={Refresh}>새로 고침</button>
       </aside>
     </>
   );
