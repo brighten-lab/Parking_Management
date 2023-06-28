@@ -3,7 +3,7 @@ import styled from "styled-components";
 import "../style/location.css";
 import Left from "./Left";
 
-const url = 'http://127.0.0.1:5001';
+const url = 'http://127.0.0.1:5000';
 
 const Car = styled.div`
   border: 1px solid #a7a7a7;
@@ -14,13 +14,12 @@ const Car = styled.div`
 
 const Container = styled.div`
   display: flex;
-  height: 100vh;
+  height: 80vh;
 `;
 
 
 const A = () => {
   const [avail, setAvail] = useState(0);
-  const [done, setDone] = useState(0);
   const [total, setTotal] = useState(0);
 
   const [parking, setParking] = useState([

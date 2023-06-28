@@ -1,17 +1,26 @@
 aside {
-  flex: 0.2;
+  flex: 0.15;
   margin-left: 20px;
 }
+
 button {
   background-color: blue;
   color: white;
   padding: 10px;
 }
 
-p{
+.textnum{
+  display: flex; 
+  justify-content: space-between;
   background-color: #6d6d6d;
   border-radius: 5px;
   margin: 5px;
   height: 50px;
   font-size: 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 150px;
+  white-space: nowrap;
 }
