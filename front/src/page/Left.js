@@ -7,10 +7,11 @@ const Left = (props) => {
   const { avail, total } = props;
   const [done, setDone] = useState(0);
 
-  const availTextStyle = {
+  const Full = {
     backgroundColor: avail === 0 ? "red" : "#6d6d6d",
     borderRadius: '5px',
     margin: '5px',
+    marginTop: '20px',
     height: '50px',
     fontSize: '20px',
     display: 'flex',
@@ -19,6 +20,10 @@ const Left = (props) => {
     paddingRight: '10px',
     width: '150px',
   };
+
+  const Avail = {
+    backgroundColor: avail === 0 ? "#6d6d6d" : "blue",
+  }
 
   const Refresh = () => {
     window.location.reload();
@@ -32,9 +37,9 @@ const Left = (props) => {
   return (
     <>
       <aside>
-        <p style={availTextStyle}>만차 </p>
-        <div className="textnum">
-        <p>주차 가능</p> 
+        <p style={Full}>만차 </p>
+        <div className="textnum" style={Avail} >
+        <p >주차 가능</p> 
         <p>{avail}</p>
     </div>
     <div className="textnum">
