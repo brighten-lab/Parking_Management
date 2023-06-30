@@ -6,12 +6,12 @@
   margin: 15px;
   background-color: rgb(45, 41, 41);
   align-items: center;
+  justify-content: center;
   color: #fff;
   display: flex;
 }
 
 .topPart, .bottomPart {
-  margin-top: 50px;
   display: flex;
 }
 
