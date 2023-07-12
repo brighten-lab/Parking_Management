@@ -7,7 +7,7 @@ npm start
 ```
 
 #### UI
-<image width=700 src=https://github.com/heymin2/Parking_Management/assets/97522726/bd5296f5-3ece-48b8-b6f3-1a15d26e3d32/>
+<image width=700 src=https://github.com/heymin2/Parking_Management/assets/97522726/737b7a45-8b24-4c1e-b728-fdc7ce271f69/>
 
 
 ### 🔽 server - flask
