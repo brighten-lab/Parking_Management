@@ -7,10 +7,6 @@ import Main from "./page/Main"
 const App = () => {
   return (
     <>
-    {/* <div>
-    <Header />
-    <A />
-  </div> */}
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Main />} />
