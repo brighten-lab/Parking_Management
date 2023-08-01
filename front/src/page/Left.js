@@ -40,14 +40,18 @@ const Left = (props) => {
     <>
       <aside>
         <button onClick={Refresh}><FiRefreshCcw/></button>
-        <table border={1}>
+        <table>
+          <colgroup>
+          <col style={{ width: '50%' }} />
+          <col style={{ width: '50%', borderLeft: '1px solid #d1d1d1' }} />
+          </colgroup>
           <thead>
-            <tr style={{backgroundColor: 'blue'}}>
-              <th colspan="2">{currentDateTime.toLocaleString('KO-kr', options)}</th>
+            <tr style={{ backgroundColor: 'blue' }}>
+              <th colSpan="2">{currentDateTime.toLocaleString('KO-kr', options)}</th>
             </tr>
           </thead>
           <tbody>
-            <tr> 
+            <tr>
               <td>주차가능대수</td>
               <td>{avail}/{total}</td>
             </tr>
@@ -73,6 +77,7 @@ const Left = (props) => {
             </tr>
           </tbody>
         </table>
+
         <button className="cctvbtn" onClick={RTSP}>CCTV영상확인</button>
       </aside>
     </>
