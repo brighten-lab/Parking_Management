@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../style/Left.css";
-import { FiRefreshCcw } from "react-icons/fi";
 import {useNavigate} from "react-router-dom"
 
 const Left = (props) => {
@@ -28,9 +27,7 @@ const Left = (props) => {
     hour12: false,
   };
   
-  const Refresh = () => {
-    window.location.reload();
-  };
+
 
   const RTSP = () => {
     navigate('/cctv')
@@ -39,14 +36,13 @@ const Left = (props) => {
   return (
     <>
       <aside>
-        <button onClick={Refresh}><FiRefreshCcw/></button>
         <table>
           <colgroup>
           <col style={{ width: '50%' }} />
           <col style={{ width: '50%', borderLeft: '1px solid #d1d1d1' }} />
           </colgroup>
           <thead>
-            <tr style={{ backgroundColor: 'blue' }}>
+            <tr style={{ backgroundColor: '#3447fa', height: '35px'}}>
               <th colSpan="2">{currentDateTime.toLocaleString('KO-kr', options)}</th>
             </tr>
           </thead>
@@ -79,6 +75,9 @@ const Left = (props) => {
         </table>
 
         <button className="cctvbtn" onClick={RTSP}>CCTV영상확인</button>
+        <button className="cctvbtn">요일별통계</button>
+        <button className="cctvbtn">시간대별통계</button>
+     
       </aside>
     </>
   );

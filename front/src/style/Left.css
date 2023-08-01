@@ -18,13 +18,13 @@ button:hover{
 }
 
 .cctvbtn {
-  background-color: #038f03;
-  color: white;
+  background-color: #126912;
+  color: #f8ff21;
   display: flex;
   margin-top: 40px;
   margin-left: 5px;
-  font-size: 30px;
-  border-radius: 5px;
+  font-size: 20px;
+  border-radius: 3px;
   padding: 10px;
 }
 
@@ -38,7 +38,8 @@ tr{
   border-bottom:1px solid #d1d1d1 ;
 }
 
-table             { 
+table{ 
+  margin-top: 16px;
   border-collapse: collapse; 
   background:white;
   border-radius:3px;

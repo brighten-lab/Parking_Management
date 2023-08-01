@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import "../style/location.css";
 import Left from "./Left";
+import Right from "./Right";
 
 const url = "http://211.57.200.6:5000"; // 서버 URL (변경 가능)
 const URL = "http://127.0.0.1:5000"; // 서버 URL (변경 가능)
@@ -9,15 +10,15 @@ const Car = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #a7a7a7;
+  border: 2px solid #a7a7a7;
   width: 50px;
   height: 80px;
-  background-color: ${(props) => (props.isParked ? "#d9d9d9" : "blue")};
+  background-color: ${(props) => (props.isParked && props.type===0 ? "#696969" : "#d9d9d9")};
 `;
 
 const Container = styled.div`
   display: flex;
-  height: 80vh;
+  height: 55vh;
 `;
 
 const A = () => {
@@ -124,7 +125,7 @@ const A = () => {
       <div className="body">
         <div className="topPart">
           {parking.slice(0, 12).map((car, index) => (
-            <Car key={index} isParked={car.is_parked}>
+            <Car key={index} isParked={car.is_parked} type={car.type}>
               A{index + 1}
             </Car>
           ))}
@@ -132,16 +133,13 @@ const A = () => {
         <div style={{ height: "80px" }}></div>
         <div className="bottomPart">
           {parking.slice(12).map((car, index) => (
-            <Car key={index + 12} isParked={car.is_parked}>
+            <Car key={index + 12} isParked={car.is_parked} type={car.type}>
               B{index + 1}
             </Car>
           ))}
         </div>
-        <div style={{ height: "80px" }}></div>
-        <div className="build">
-          <p>제 2 시험생산공장</p>
-        </div>
       </div>
+    <Right/>
     </Container>
   );
 };
