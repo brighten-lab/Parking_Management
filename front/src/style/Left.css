@@ -21,25 +21,9 @@ button:hover{
   background-color: #038f03;
   color: white;
   display: flex;
-  magin-top: 40px;
+  margin-top: 40px;
   margin-left: 5px;
   font-size: 30px;
   border-radius: 5px;
   padding: 10px;
-}
-
-.textnum{
-  display: flex; 
-  justify-content: space-between;
-  background-color: #6d6d6d;
-  border-radius: 5px;
-  margin: 5px;
-  height: 65px;
-  font-size: 30px;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 190px;
-  white-space: nowrap;
 }
