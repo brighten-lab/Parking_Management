@@ -10,20 +10,16 @@ def list():
     zone = request.json.get('zone') 
     db = pymysql.connect(host='211.57.200.6', port=3306, user='root', password='willcam1190', db='park', charset='utf8')
     cursor = db.cursor(pymysql.cursors.DictCursor)  # DictCursor를 사용하여 딕셔너리 형태로 결과를 반환
-    sql = "SELECT * FROM parking WHERE zone = %s"
+    sql = f"""SELECT * 
+            FROM parking
+            WHERE id IN(
+            SELECT MAX(id) AS last_idx
+            FROM parking
+            WHERE ZONE=%s 
+            group BY spot_number)
+            ORDER BY spot_number ASC"""
     cursor.execute(sql, zone)
     result = cursor.fetchall()
-    db.close()
-    return jsonify(result)
-
-@app.route('/total', methods=['POST'])
-def total():
-    zone = request.json.get('zone') 
-    db = pymysql.connect(host='211.57.200.6', port=3306, user='root', password='willcam1190', db='park', charset='utf8')
-    cursor = db.cursor()
-    sql = "SELECT count(id) FROM parking WHERE zone= %s;"
-    cursor.execute(sql, zone)
-    result = cursor.fetchone()[0]
     db.close()
     return jsonify(result)
 
@@ -34,6 +30,18 @@ def avail():
     cursor = db.cursor()
     sql = "SELECT count(id) FROM parking WHERE zone= %s AND is_parked= 0;"
     cursor.execute(sql, zone)
+    result = cursor.fetchone()[0]
+    db.close()
+    return jsonify(result)
+
+@app.route('/type', methods=['POST'])
+def type():
+    zone = request.json.get('zone') 
+    type = request.json.get('type')
+    db = pymysql.connect(host='211.57.200.6', port=3306, user='root', password='willcam1190', db='park', charset='utf8')
+    cursor = db.cursor()
+    sql = "SELECT count(id) FROM parking WHERE zone= %s AND is_parked= 0 AND type=%s;"
+    cursor.execute(sql, (zone, type))
     result = cursor.fetchone()[0]
     db.close()
     return jsonify(result)
