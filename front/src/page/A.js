@@ -3,8 +3,8 @@ import styled from "styled-components";
 import "../style/location.css";
 import Left from "./Left";
 
-const url = "http://211.57.200.6:5000";
-
+const url = "http://211.57.200.6:5000"; // 서버 URL (변경 가능)
+const URL = "http://127.0.0.1:5000"; // 서버 URL (변경 가능)
 const Car = styled.div`
   display: flex;
   align-items: center;
@@ -21,12 +21,13 @@ const Container = styled.div`
 `;
 
 const A = () => {
+  const [refreshCount, setRefreshCount] = useState(0);
   const [avail, setAvail] = useState(0);
   const [total, setTotal] = useState(0);
-
   const [parking, setParking] = useState([]);
 
-  useEffect(() => {
+  // 데이터를 가져오는 함수
+  const fetchData = () => {
     fetch(url + "/list", {
       method: "POST",
       headers: {
@@ -74,6 +75,20 @@ const A = () => {
       .catch((error) => {
         console.error("error: " + error);
       });
+  };
+
+  useEffect(() => {
+    // 컴포넌트가 처음 마운트될 때 데이터를 가져옵니다.
+    fetchData();
+
+    // 5초마다 데이터를 가져오기 위한 타이머 설정
+    const interval = setInterval(() => {
+      fetchData();
+      setRefreshCount((count) => count + 1);
+    }, 5000);
+
+    // 컴포넌트가 언마운트될 때 타이머를 정리합니다.
+    return () => clearInterval(interval);
   }, []);
 
   return (
