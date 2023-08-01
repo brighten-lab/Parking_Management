@@ -23,8 +23,13 @@ const Container = styled.div`
 const A = () => {
   const [refreshCount, setRefreshCount] = useState(0);
   const [avail, setAvail] = useState(0);
-  const [total, setTotal] = useState(0);
+  const [elect, setElect] = useState(0);
+  const [disabled, setDisabled] = useState(0);
+  const [female, setFemale] = useState(0);
+  const [compact, setCompact] = useState(0);
+  const [general, setGeneral] = useState(0);
   const [parking, setParking] = useState([]);
+  const total = parking.length;
 
   // 데이터를 가져오는 함수
   const fetchData = () => {
@@ -44,22 +49,6 @@ const A = () => {
         console.error("error: " + error);
       });
 
-    fetch(url + "/total", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ zone: "A" }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setTotal(data);
-        console.log("성공: " + data);
-      })
-      .catch((error) => {
-        console.error("error: " + error);
-      });
-
     fetch(url + "/avail", {
       method: "POST",
       headers: {
@@ -70,20 +59,58 @@ const A = () => {
       .then((response) => response.json())
       .then((data) => {
         setAvail(data);
-        console.log("성공: " + data);
       })
       .catch((error) => {
         console.error("error: " + error);
       });
   };
 
+  const updateDataByType = () => {
+    for (let i = 0; i <= 4; i++) {
+      fetch(url + "/type", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ zone: "A", type: i }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          switch (i) {
+            case 1:
+              setElect(data);
+              break;
+            case 2:
+              setDisabled(data);
+              break;
+            case 3:
+              setFemale(data);
+              break;
+            case 4:
+              setCompact(data);
+              break;
+            case 0:
+              setGeneral(data);
+              break;
+            default:
+              break;
+          }
+        })
+        .catch((error) => {
+          console.error("error: " + error);
+        });
+    }
+  };
+
   useEffect(() => {
     // 컴포넌트가 처음 마운트될 때 데이터를 가져옵니다.
     fetchData();
+    updateDataByType();
 
     // 5초마다 데이터를 가져오기 위한 타이머 설정
     const interval = setInterval(() => {
       fetchData();
+      updateDataByType();
       setRefreshCount((count) => count + 1);
     }, 5000);
 
@@ -93,7 +120,7 @@ const A = () => {
 
   return (
     <Container>
-      <Left avail={avail} total={total} />
+      <Left {...{ avail, total, elect, disabled, female, compact, general }} />
       <div className="body">
         <div className="topPart">
           {parking.slice(0, 12).map((car, index) => (

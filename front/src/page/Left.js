@@ -4,7 +4,7 @@ import { FiRefreshCcw } from "react-icons/fi";
 import {useNavigate} from "react-router-dom"
 
 const Left = (props) => {
-  const {avail, total} = props;
+  const {avail, total, elect, disabled, female, compact, general} = props;
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
   const navigate = useNavigate();
@@ -53,23 +53,23 @@ const Left = (props) => {
             </tr>
             <tr>
               <td>전기차</td>
-              <td>25</td>
+              <td>{elect}</td>
             </tr>
             <tr>
               <td>장애인</td>
-              <td>25</td>
+              <td>{disabled}</td>
             </tr>
             <tr>
               <td>여성</td>
-              <td>25</td>
+              <td>{female}</td>
             </tr>
             <tr>
               <td>경차</td>
-              <td>25</td>
+              <td>{compact}</td>
             </tr>
             <tr>
               <td>일반</td>
-              <td>25</td>
+              <td>{general}</td>
             </tr>
           </tbody>
         </table>
