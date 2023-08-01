@@ -17,17 +17,6 @@ button:hover{
   color: #212121;
 }
 
-.cctvbtn {
-  background-color: #126912;
-  color: #f8ff21;
-  display: flex;
-  margin-top: 40px;
-  margin-left: 5px;
-  font-size: 20px;
-  border-radius: 3px;
-  padding: 10px;
-}
-
 td{
   color:black;
   text-align:center;
@@ -46,4 +35,18 @@ table{
   overflow:hidden;
   max-width:800px; 
   width:260px;
+}
+
+.btn{
+  display: flex;
+}
+
+.cctvbtn {
+  background-color: #126912;
+  color: #f8ff21;
+  display: flex;
+  font-size: 15px;
+  border-radius: 3px;
+  padding: 10px;
+  justify-content: center;
 }

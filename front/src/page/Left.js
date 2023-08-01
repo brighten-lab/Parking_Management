@@ -73,11 +73,12 @@ const Left = (props) => {
             </tr>
           </tbody>
         </table>
-
-        <button className="cctvbtn" onClick={RTSP}>CCTV영상확인</button>
-        <button className="cctvbtn">요일별통계</button>
-        <button className="cctvbtn">시간대별통계</button>
-     
+      
+        <div className="btn">
+        <button  style={{ width: '50%' }} className="stats cctvbtn">요일별 통계</button>
+        <button  style={{ width: '50%' }} className="stats cctvbtn">시간대별 통계</button>
+        </div>
+        <button  style={{ width: '50%' }} className="cctvbtn" onClick={RTSP}>CCTV영상확인</button>
       </aside>
     </>
   );
