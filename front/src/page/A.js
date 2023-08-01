@@ -9,6 +9,7 @@ const URL = "http://127.0.0.1:5000"; // 서버 URL (변경 가능)
 const Car = styled.div`
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: center;
   border: 2px solid #a7a7a7;
   width: 50px;
@@ -126,7 +127,7 @@ const A = () => {
         <div className="topPart">
           {parking.slice(0, 12).map((car, index) => (
             <Car key={index} isParked={car.is_parked} type={car.type}>
-              A{index + 1}
+              {car.is_parked === 0 ? "주차\n가능" : ""}
             </Car>
           ))}
         </div>
@@ -134,7 +135,7 @@ const A = () => {
         <div className="bottomPart">
           {parking.slice(12).map((car, index) => (
             <Car key={index + 12} isParked={car.is_parked} type={car.type}>
-              B{index + 1}
+              {car.is_parked === 0 ? "주차\n가능" : ""}
             </Car>
           ))}
         </div>
