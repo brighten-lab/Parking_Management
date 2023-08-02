@@ -6,7 +6,6 @@ import Left from "../layout/Left";
 import Right from "../layout/Right";
 
 const url = "http://211.57.200.6:5000"; // 서버 URL (변경 가능)
-const URL = "http://127.0.0.1:5000"; // 서버 URL (변경 가능)
 const Car = styled.div`
   display: flex;
   align-items: center;
@@ -15,7 +14,22 @@ const Car = styled.div`
   border: 2px solid #a7a7a7;
   width: 50px;
   height: 80px;
-  background-color: ${(props) => (props.isParked && props.type===0 ? "#696969" : "#d9d9d9")};
+  background-color: ${(props) => {
+    if (props.isParked) { // 주차중
+      if (props.type === 0) return "#696969";
+      else if (props.type === 1) return "#377f37"; 
+      else if (props.type === 2) return "#549ac3";
+      else if (props.type === 3) return "#dad369";
+      else if (props.type === 4) return "#6a6f98"; 
+    }
+    else{ // 주차가능 - 연한색
+      if (props.type === 0) return "#d9d9d9";
+      else if (props.type === 1) return "#72bd72";
+      else if (props.type === 2) return "#8ac0df"; 
+      else if (props.type === 3) return "#ebe598";
+      else if (props.type === 4) return "#9ea5e0"; 
+    }
+  }};
 `;
 
 const Container = styled.div`
