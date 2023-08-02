@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import "../style/location.css";
 import Left from "./Left";
 import Right from "./Right";
+import { FaLongArrowAltLeft } from 'react-icons/fa';
 
 const url = "http://211.57.200.6:5000"; // 서버 URL (변경 가능)
 const URL = "http://127.0.0.1:5000"; // 서버 URL (변경 가능)
@@ -22,6 +23,21 @@ const Container = styled.div`
   height: 55vh;
 `;
 
+const fadeIn = keyframes`
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+`;
+
+const AnimatedText = styled.div`
+  text-align: center;
+  animation: ${fadeIn} 5s ease-in-out;
+  animation-delay: ${(props) => props.delay}s;
+  flex: 1;
+  animation-iteration-count: infinite;
+  opacity: 0;
+`;
+
 const A = () => {
   const [refreshCount, setRefreshCount] = useState(0);
   const [avail, setAvail] = useState(0);
@@ -32,6 +48,8 @@ const A = () => {
   const [general, setGeneral] = useState(0);
   const [parking, setParking] = useState([]);
   const total = parking.length;
+  const [showArrows, setShowArrows] = useState(false);
+
 
   // 데이터를 가져오는 함수
   const fetchData = () => {
@@ -120,6 +138,18 @@ const A = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // 애니메이션
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowArrows(true); // 다음 화살표를 나타내기 위해 상태를 true로 설정
+      setTimeout(() => {
+        setShowArrows(false); // 2.5초 후에 화살표를 사라지게 함
+      }, 2500);
+    }, 5000); // 5초마다 순서 변경
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <Container>
       <Left {...{ avail, total, elect, disabled, female, compact, general }} />
@@ -133,7 +163,11 @@ const A = () => {
         </div>
         <div style={{ height: "80px", display: "flex", alignItems: "center", width: "100%"}}>
           <div style={{flex:1, textAlign: "left" }}>출입</div>
-          <div style={{width: "100%" }}></div>
+          <div style={{width: "100%", display: "flex",  alignItems: "center", flexDirection: 'row-reverse', justifyContent: "center"}}>
+            {Array.from({ length: 5 }, (_, index) => (
+              <AnimatedText key={index} delay={index} style={{ opacity: showArrows >= index + 1 ? 1 : 0 }}><FaLongArrowAltLeft/></AnimatedText>
+            ))}
+          </div>
           <div style={{flex:1, textAlign: "right" }}>출입</div>
         </div>
         <div className="bottomPart">
