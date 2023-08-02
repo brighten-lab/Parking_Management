@@ -131,7 +131,11 @@ const A = () => {
             </Car>
           ))}
         </div>
-        <div style={{ height: "80px" }}></div>
+        <div style={{ height: "80px", display: "flex", alignItems: "center", width: "100%"}}>
+          <div style={{flex:1, textAlign: "left" }}>출입</div>
+          <div style={{width: "100%" }}></div>
+          <div style={{flex:1, textAlign: "right" }}>출입</div>
+        </div>
         <div className="bottomPart">
           {parking.slice(12).map((car, index) => (
             <Car key={index + 12} isParked={car.is_parked} type={car.type}>
