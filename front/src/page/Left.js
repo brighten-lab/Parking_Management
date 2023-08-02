@@ -52,23 +52,23 @@ const Left = (props) => {
               <td>{avail}/{total}</td>
             </tr>
             <tr>
-              <td>전기차</td>
+              <td style={{ backgroundColor: '#72bd72'}}>전기차</td>
               <td>{elect}</td>
             </tr>
             <tr>
-              <td>장애인</td>
+              <td style={{ backgroundColor: '#8ac0df'}}>장애인</td>
               <td>{disabled}</td>
             </tr>
             <tr>
-              <td>여성</td>
+              <td style={{ backgroundColor: '#ebe598'}}>여성</td>
               <td>{female}</td>
             </tr>
             <tr>
-              <td>경차</td>
+              <td style={{ backgroundColor: '#9ea5e0'}}>경차</td>
               <td>{compact}</td>
             </tr>
             <tr>
-              <td>일반</td>
+              <td style={{ backgroundColor: '#d9d9d9'}}>일반</td>
               <td>{general}</td>
             </tr>
           </tbody>
