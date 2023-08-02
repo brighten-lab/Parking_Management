@@ -27,14 +27,14 @@ const GridContainer = styled.div`
 
 const Footer = ({ onButtonClick }) => {
   const data = [
-    "주차장9",
-    "옥산공영주차장",
-    "남천둔차공영주차장",
-    "남매그린공원공영주차장",
-    "계양공영주차장",
-    "임당역환승 공영주차장",
-    "신대리1공영주차장",
-    "한마음길노상공영주차장",
+    { title: "주차장9", link: "/" },
+    { title: "옥산공영주차장", link: "/B" },
+    { title: "남천둔차공영주차장", link: "/" },
+    { title: "남매그린공원공영주차장", link: "/" },
+    { title: "계양공영주차장", link: "/" },
+    { title: "임당역환승 공영주차장", link: "/" },
+    { title: "신대리1공영주차장", link: "/" },
+    { title: "한마음길노상공영주차장", link: "/" },
   ];
 
   const buttonClick = (title) => {
@@ -45,9 +45,9 @@ const Footer = ({ onButtonClick }) => {
   return (
     <footer>
       <GridContainer>
-        {data.map((title, index) => (
-          <FooterButton key={index} onClick={() => buttonClick(title)}>
-            <span>{title}</span>
+        {data.map((item, index) => (
+          <FooterButton key={index} to={item.link} onClick={() => buttonClick(item.title)}>
+            <span>{item.title}</span>
             <span className="num">현재주차가능: </span>
           </FooterButton>
         ))}
