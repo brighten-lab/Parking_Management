@@ -1,11 +1,14 @@
 import React from "react";
 import A from "./A";
-import Header from "./Header";
+import Header from "../layout/Header";
+import Footer from "../layout/Footer";
+
 const Main = () =>{
     return(
         <>
         <Header />
         <A />
+        <Footer/>
         </>
     )
 }
