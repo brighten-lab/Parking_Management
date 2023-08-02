@@ -28,13 +28,14 @@ def avail():
     zone = request.json.get('zone') 
     db = pymysql.connect(host='211.57.200.6', port=3306, user='root', password='willcam1190', db='park', charset='utf8')
     cursor = db.cursor()
-    sql = f"""SELECT COUNT(*)
+    sql = f"""SELECT COUNT(*) 
             FROM parking
             WHERE id IN(
-            SELECT MAX(id) AS last_idx
-            FROM parking
-            WHERE ZONE=%s AND is_parked = 0
-            group BY spot_number)
+                SELECT MAX(id) AS last_idx
+                FROM parking
+                WHERE ZONE=%s 
+                GROUP BY spot_number
+            ) AND is_parked = 0
             ORDER BY spot_number ASC"""
     cursor.execute(sql, zone)
     result = cursor.fetchone()[0]
@@ -47,13 +48,14 @@ def type():
     type = request.json.get('type')
     db = pymysql.connect(host='211.57.200.6', port=3306, user='root', password='willcam1190', db='park', charset='utf8')
     cursor = db.cursor()
-    sql = f"""SELECT COUNT(*)
+    sql = f"""SELECT COUNT(*) 
             FROM parking
             WHERE id IN(
-            SELECT MAX(id) AS last_idx
-            FROM parking
-            WHERE ZONE=%s AND is_parked = 0 AND type=%s
-            group BY spot_number)
+                SELECT MAX(id) AS last_idx
+                FROM parking
+                WHERE ZONE=%s 
+                GROUP BY spot_number
+            ) AND is_parked = 0 AND type = %s
             ORDER BY spot_number ASC"""
     cursor.execute(sql, (zone, type))
     result = cursor.fetchone()[0]
