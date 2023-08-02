@@ -15,6 +15,16 @@ const FooterButton = styled.button`
   font-size: 16px;
   color:rgb(255, 225, 0);
   font-weight: 600;
+  @media (max-width: 1200px) {
+    width: 160px;
+    height: 50px;
+    font-size: 13px;
+  }
+  @media (min-width:1200px) and (max-width:1500px){
+    width: 95%;
+    height: 50px;
+    font-size: 13px;
+  }
 `;
 
 const GridContainer = styled.div`
@@ -32,13 +42,12 @@ const Footer = ({ onButtonClick }) => {
     { title: "남천둔차공영주차장", link: "/" },
     { title: "남매그린공원공영주차장", link: "/" },
     { title: "계양공영주차장", link: "/" },
-    { title: "임당역환승 공영주차장", link: "/" },
+    { title: "임당역환승공영주차장", link: "/" },
     { title: "신대리1공영주차장", link: "/" },
     { title: "한마음길노상공영주차장", link: "/" },
   ];
 
   const buttonClick = (title) => {
-    // 버튼 클릭 시 Main 컴포넌트로 버튼 이름 전달
     onButtonClick(title);
   };
 
