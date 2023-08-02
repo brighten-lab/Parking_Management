@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import "../style/location.css";
-import Left from "./Left";
-import Right from "./Right";
 import { FaLongArrowAltLeft } from 'react-icons/fa';
+import "../style/location.css";
+import Left from "../layout/Left";
+import Right from "../layout/Right";
 
 const url = "http://211.57.200.6:5000"; // 서버 URL (변경 가능)
 const URL = "http://127.0.0.1:5000"; // 서버 URL (변경 가능)
