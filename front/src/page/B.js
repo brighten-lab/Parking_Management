@@ -176,13 +176,13 @@ const B = () => {
           ))}
         </div>
         <div style={{ height: "80px", display: "flex", alignItems: "center", width: "100%"}}>
-          <div style={{flex:1, textAlign: "left" }}>출입</div>
+          <div style={{flex:1, textAlign: "left", color: "black"}}>출입</div>
           <div style={{width: "100%", display: "flex",  alignItems: "center", flexDirection: 'row-reverse', justifyContent: "center"}}>
             {Array.from({ length: 5 }, (_, index) => (
-              <AnimatedText key={index} delay={index} style={{ opacity: showArrows >= index + 1 ? 1 : 0 }}><FaLongArrowAltLeft/></AnimatedText>
+              <AnimatedText key={index} delay={index} style={{ opacity: showArrows >= index + 1 ? 1 : 0 }}><FaLongArrowAltLeft style={{color: "black"}}/></AnimatedText>
             ))}
           </div>
-          <div style={{flex:1, textAlign: "right" }}>출입</div>
+          <div style={{flex:1, textAlign: "right", color: "black"}}>출입</div>
         </div>
         <div style={{ display: "flex"}}>
           {parking.slice(10).map((car, index) => (

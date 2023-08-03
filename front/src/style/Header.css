@@ -7,9 +7,10 @@ header {
   justify-content: center;
   align-items: center;
   display: flex;
-  color: white;
+  color: #000000;
   font-size: x-large;
-  background-color: #0d3f7a;
+  font-weight: bold;
+  background-color: #ffffff;
 }
 body {
   margin: 0;

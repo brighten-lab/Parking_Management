@@ -42,7 +42,7 @@ const Left = (props) => {
           <col style={{ width: '50%', borderLeft: '1px solid #d1d1d1' }} />
           </colgroup>
           <thead>
-            <tr style={{ backgroundColor: '#3447fa', height: '35px'}}>
+            <tr style={{ backgroundColor: '#1362b2', height: '35px'}}>
               <th colSpan="2">{currentDateTime.toLocaleString('KO-kr', options)}</th>
             </tr>
           </thead>

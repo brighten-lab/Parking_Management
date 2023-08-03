@@ -51,3 +51,7 @@ table{
   padding: 10px;
   justify-content: center;
 }
+
+body{
+  background: white;
+}

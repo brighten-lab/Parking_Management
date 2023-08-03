@@ -2,10 +2,12 @@ import "../style/Header.css";
 
 const Header = (props) => {
   const text = props.text;
+
   return (
     <>
       <header>
-        실시간 스마트주차 유도시스템 {text}
+        실시간 스마트주차 유도시스템&nbsp;
+        <span style={{ color: "#94b3cc" }}>{text}</span>
       </header>
     </>
   );

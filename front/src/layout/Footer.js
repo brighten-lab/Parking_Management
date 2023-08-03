@@ -3,7 +3,7 @@ import styled from "styled-components";
 import "../style/Footer.css";
 
 const FooterButton = styled.button`
-  background-color: #1c3fa7;
+  background-color: #1362b2;
   color: #ffee00;
   display: flex;
   flex-direction: column;
