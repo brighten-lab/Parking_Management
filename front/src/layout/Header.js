@@ -6,7 +6,7 @@ const Header = (props) => {
   return (
     <>
       <header>
-        실시간 스마트주차 유도시스템&nbsp;
+        실시간 스마트주차 유도시스템&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;  
         <span style={{ color: "#94b3cc" }}>{text}</span>
       </header>
     </>

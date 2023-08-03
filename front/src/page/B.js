@@ -10,6 +10,7 @@ const Car = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
+  white-space: pre-wrap;
   justify-content: center;
   border: 2px solid #d9d9d9;
   width: 50px;

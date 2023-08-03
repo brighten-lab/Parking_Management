@@ -27,8 +27,7 @@ const Left = (props) => {
     hour12: false,
   };
   
-
-
+  
   const RTSP = () => {
     navigate('/cctv')
   }
