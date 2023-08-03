@@ -52,7 +52,7 @@ const AnimatedText = styled.div`
   opacity: 0;
 `;
 
-const B = () => {
+const B = (props) => {
   const [refreshCount, setRefreshCount] = useState(0);
   const [avail, setAvail] = useState(0);
   const [elect, setElect] = useState(0);
@@ -93,6 +93,7 @@ const B = () => {
       .then((response) => response.json())
       .then((data) => {
         setAvail(data);
+        props.setAvail(data);
       })
       .catch((error) => {
         console.error("error: " + error);

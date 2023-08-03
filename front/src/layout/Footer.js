@@ -35,16 +35,16 @@ const GridContainer = styled.div`
   margin-right: 220px;
 `;
 
-const Footer = ({ onButtonClick }) => {
+const Footer = ({ onButtonClick, availA, availB}) => {
   const data = [
-    { title: "주차장9", link: "/" },
-    { title: "옥산공영주차장", link: "/B" },
-    { title: "남천둔차공영주차장", link: "/" },
-    { title: "남매그린공원공영주차장", link: "/" },
-    { title: "계양공영주차장", link: "/" },
-    { title: "임당역환승공영주차장", link: "/" },
-    { title: "신대리1공영주차장", link: "/" },
-    { title: "한마음길노상공영주차장", link: "/" },
+    { title: "주차장9", link: "/", avail: availA },
+    { title: "옥산공영주차장", link: "/B", avail: availB  },
+    { title: "남천둔차공영주차장", link: "/" , avail: availA },
+    { title: "남매그린공원공영주차장", link: "/", avail: availA  },
+    { title: "계양공영주차장", link: "/", avail: availA  },
+    { title: "임당역환승공영주차장", link: "/", avail: availA  },
+    { title: "신대리1공영주차장", link: "/", avail: availA  },
+    { title: "한마음길노상공영주차장", link: "/", avail: availA  },
   ];
 
   const buttonClick = (title) => {
@@ -57,7 +57,7 @@ const Footer = ({ onButtonClick }) => {
         {data.map((item, index) => (
           <FooterButton key={index} to={item.link} onClick={() => buttonClick(item.title)}>
             <span>{item.title}</span>
-            <span className="num">현재주차가능: </span>
+            <span className="num">현재주차가능:{item.avail}</span>
           </FooterButton>
         ))}
       </GridContainer>

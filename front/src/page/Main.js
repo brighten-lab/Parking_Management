@@ -6,29 +6,30 @@ import Footer from "../layout/Footer";
 
 const Main = () =>{
     const [text, setText] = useState("주차장9");
+    const [availA, setAvailA] = useState(0); 
+    const [availB, setAvailB] = useState(0); 
+    let Show = null;
 
     const btnclick = (title) => {
         setText(title);
       };
 
-    let Show = null;
-
     switch (text) {
         case "주차장9":
-            Show = <A />;
+            Show = <A setAvail={setAvailA}/>;
           break;
         case "옥산공영주차장":
-            Show = <B />;
+            Show = <B setAvail={setAvailB}/>;
           break;
         default:
-            Show = <A />;
+            Show = <A setAvail={setAvailA}/>;
       }
 
     return(
         <>
         <Header text={text} />
         {Show}
-        <Footer onButtonClick={btnclick} />
+        <Footer onButtonClick={btnclick}  availA={availA} availB={availB}/>
         </>
     )
 }
