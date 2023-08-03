@@ -11,7 +11,7 @@ const Car = styled.div`
   align-items: center;
   text-align: center;
   justify-content: center;
-  border: 2px solid #a7a7a7;
+  border: 2px solid #d9d9d9;
   width: 50px;
   height: 80px;
   background-color: ${(props) => {
@@ -23,7 +23,7 @@ const Car = styled.div`
       else if (props.type === 4) return "#6a6f98"; 
     }
     else{ // 주차가능 - 연한색
-      if (props.type === 0) return "#d9d9d9";
+      if (props.type === 0) return "#a7a7a7";
       else if (props.type === 1) return "#72bd72";
       else if (props.type === 2) return "#8ac0df"; 
       else if (props.type === 3) return "#ebe598";
