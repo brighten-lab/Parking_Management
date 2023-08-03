@@ -7,16 +7,14 @@ npm start
 ```
 
 #### UI
-<image width=700 src=https://github.com/heymin2/Parking_Management/assets/97522726/737b7a45-8b24-4c1e-b728-fdc7ce271f69/>
+<image width=700 src=https://github.com/heymin2/Parking_Management/assets/97522726/c56b39e4-39ba-43ed-93f8-77422bdaffa9/>
 
 
 ### 🔽 server - flask
-#### 실행: Linux
 ```
-source venv/bin/activate
 flask run
 ```
 
 ### ▶️ DB - MariaDB
-<image width=250 src=https://github.com/heymin2/Parking_Management/assets/97522726/f8f13ba3-6243-4785-b218-3f16cd58c4fc/>
+<image width=250 src=https://github.com/heymin2/Parking_Management/assets/97522726/c56d4831-8a94-4689-9568-67652a7a11d6/>
 
