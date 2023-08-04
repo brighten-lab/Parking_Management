@@ -54,7 +54,7 @@ const AnimatedText = styled.div`
 `;
 
 const B = (props) => {
-  const [refreshCount, setRefreshCount] = useState(0);
+  const [, setRefreshCount] = useState(0);
   const [avail, setAvail] = useState(0);
   const [elect, setElect] = useState(0);
   const [disabled, setDisabled] = useState(0);
