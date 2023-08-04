@@ -6,8 +6,8 @@ import Footer from "../layout/Footer";
 
 const Main = () =>{
     const [text, setText] = useState("주차장9");
-    const [availA, setAvailA] = useState(0); 
-    const [availB, setAvailB] = useState(0); 
+    const [availA, setAvailA] = useState(localStorage.getItem('availA') || 0);
+    const [availB, setAvailB] = useState(localStorage.getItem('availB') || 0);
     let Show = null;
 
     const btnclick = (title) => {

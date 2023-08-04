@@ -95,7 +95,7 @@ const A = (props) => {
       .then((data) => {
         setAvail(data);
         props.setAvail(data);
-        localStorage.setItem('avail', data);
+        localStorage.setItem('availA', data);
       })
       .catch((error) => {
         console.error("error: " + error);
