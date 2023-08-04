@@ -67,7 +67,7 @@ const B = (props) => {
 
 
   // 데이터를 가져오는 함수
-  const fetchData = () => {
+  const fetchData = async() => {
     fetch(url + "/list", {
       method: "POST",
       headers: {
@@ -101,7 +101,7 @@ const B = (props) => {
       });
   };
 
-  const updateDataByType = () => {
+  const updateDataByType = async() => {
     for (let i = 0; i <= 4; i++) {
       fetch(url + "/type", {
         method: "POST",
